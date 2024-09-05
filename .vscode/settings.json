@@ -1,0 +1,22 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/database/projects/*/*/manifest.json"
+            ],
+            "url": "./schema/manifest.schema.json"
+        },
+        {
+            "fileMatch": [
+                "/database/projects/*/mods.json"
+            ],
+            "url": "./schema/projects.schema.json"
+        },
+        {
+            "fileMatch": [
+                "/database/projects/*/addons.json"
+            ],
+            "url": "./schema/projects.schema.json"
+        }
+    ]
+}

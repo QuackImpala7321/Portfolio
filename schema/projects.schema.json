@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "mods",
+    "type": "object",
+    "required": [ "dirs" ],
+    "properties": {
+        "dirs": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}
