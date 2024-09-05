@@ -29,6 +29,23 @@ function displayMod(dir, container) {
         const image = document.createElement('img')
         const title = document.createElement('h2')
         const paragraph = document.createElement('p')
+        const bottomRow = document.createElement('ol')
+        bottomRow.className = 'item-button-row'
+
+        // bottom row
+        const source = document.createElement('a')
+        const downloads = document.createElement('a')
+        source.className = 'source-buttom'
+        downloads.className = 'source-button'
+        const sourceParagraph = document.createElement('p')
+        const downloadsParagraph = document.createElement('p')
+
+        sourceParagraph.appendChild(document.createTextNode('Source'))
+        downloadsParagraph.appendChild(document.createTextNode('Downloads'))
+        source.appendChild(sourceParagraph)
+        downloads.appendChild(downloadsParagraph)
+        bottomRow.appendChild(source)
+        bottomRow.appendChild(downloads)
 
         // item body
         image.src = `${modDir}/icon.png`
@@ -39,6 +56,7 @@ function displayMod(dir, container) {
         a.appendChild(image)
         a.appendChild(title)
         a.appendChild(paragraph)
+        a.appendChild(bottomRow)
         container.appendChild(a)
     })
     .catch(e => console.error(e))
