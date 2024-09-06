@@ -77,7 +77,7 @@ h2 {
 }
 
 /* Navbar Button */
-.navbar .container li a {
+.navbar > .container > li > a {
 	padding: 0 0 0 30px;
 }
 
@@ -87,6 +87,19 @@ h2 {
 	
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+}
+
+.main-contents > h1 {
+	margin: 10px;
+	padding: 5px;
+
+	font-size: 50px;
+}
+
+.main-contents > div {
+	display: flex;
+	flex-direction: row;
 }
 
 .container {
@@ -97,6 +110,8 @@ h2 {
 .item-container {
 	display: flex;
 	flex-direction: row;
+
+	justify-content: center;
 }
 
 .mod-item {
@@ -132,7 +147,7 @@ h2 {
 	margin: 20px 0;
 }
 
-.button-row a {
+.button-row > a {
 	display: flex;
 	flex-direction: row;
 
@@ -142,13 +157,13 @@ h2 {
 	box-shadow: 0 5px 1px 0 var(--light-color);
 }
 
-.button-row a:hover {
+.button-row > a:hover {
 	background-color: var(--light-color);
 	box-shadow: 0 5px 1px 0 var(--primary-color);
 
 	transition-duration: 300ms;
 }
 
-.button-row a p {
+.button-row > a > p {
 	margin: 0 15px;
 }
