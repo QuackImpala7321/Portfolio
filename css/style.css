@@ -74,6 +74,14 @@ h2 {
 }
 
 /* Utility */
+.main-contents {
+	margin: 40px;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 .container {
 	max-width: 1100px;
 	margin: 0 10px;
@@ -81,11 +89,9 @@ h2 {
 }
 
 .item-container {
-	margin: 30px;
-	padding: 10px;
-
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
 }
 
 .mod-item {
@@ -124,6 +130,13 @@ h2 {
 	padding: 20px 0;
 	border-radius: 4px;
 	box-shadow: 0 5px 1px 0 var(--light-color);
+}
+
+.button-row a:hover {
+	background-color: var(--light-color);
+	box-shadow: 0 5px 1px 0 var(--primary-color);
+
+	transition-duration: 300ms;
 }
 
 .button-row a p {
