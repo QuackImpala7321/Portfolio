@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 async function displayMod(dir, container) {
     const modDir = `${modsDir}/${dir}`
     const info = await getJson(`${modDir}/manifest.json`)
-    console.log(info)
 
     const listNode = document.createElement('li')
     const buttons = document.createElement('div')
