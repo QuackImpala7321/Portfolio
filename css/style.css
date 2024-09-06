@@ -46,17 +46,17 @@ h2 {
 }
 
 /* Navbar */
+.navbar-wrapper {
+	position: fixed;
+
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
 .navbar {
 	background: var(--light-color);
 	outline: 1px ridge var(--primary-color);
-
-	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
-}
-
-.navbar .container {
-	align-items: center;
 
 	display: flex;
 	justify-content: space-between;
@@ -68,6 +68,14 @@ h2 {
 	padding: 5px;
 }
 
+.navbar .container {
+	align-items: center;
+
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+}
+
 /* Navbar Button */
 .navbar .container li a {
 	padding: 0 0 0 30px;
@@ -75,7 +83,7 @@ h2 {
 
 /* Utility */
 .main-contents {
-	margin: 40px;
+	margin: 100px 40px 0 40px;
 	
 	display: flex;
 	flex-direction: column;
