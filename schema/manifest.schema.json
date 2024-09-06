@@ -15,6 +15,9 @@
         },
         "source": {
             "type": "string"
+        },
+        "downloads": {
+            "type": "string"
         }
     }
 }

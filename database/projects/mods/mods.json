@@ -1,6 +1,7 @@
 {
     "dirs": [
         "quacks-imps",
+        "autocrafter-early",
         "duck-mod"
     ]
 }
