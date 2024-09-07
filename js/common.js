@@ -1,12 +1,16 @@
 document.addEventListener('DOMContentLoaded', async function() {
-	const res = await fetch('/components/navbar.html')
-	const data = await res.blob()
-	const str = await data.text()
-	const doc = Document.parseHTMLUnsafe(str)
-
-	const wrapper = doc.querySelector('.navbar-wrapper')
-	console.log(wrapper)
-
 	const body = document.querySelector('body')
-	body.appendChild(wrapper)
+	const members = body.querySelectorAll('.ehtml')
+	for (const member of members) {
+		const path = member.getAttribute('src')
+
+		const res = await fetch(path)
+		const data = await res.blob()
+		const str = await data.text()
+		const doc = Document.parseHTMLUnsafe(str)
+
+		const wrapper = doc.getElementById('thtml')
+		const element = wrapper.children.item(0)
+		body.replaceChild(element, member)
+	}
 })

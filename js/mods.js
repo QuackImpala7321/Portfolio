@@ -3,17 +3,18 @@ const modsDir = "/database/projects/mods"
 document.addEventListener('DOMContentLoaded', async function() {
     const container = document.querySelector('.item-container')
     const mods = await getModList()
+    const tiles = []
     for (const dir of mods)
-        await displayMod(dir, container)
+        tiles.push(await displayMod(dir, container))
+    for (const tile of tiles)
+        container.appendChild(tile)
 })
 
 /**
- * Adds the mod page to 
- * @param {string} dir 
- * @param {Element} container
- * @returns {Promise<void>}
+ * @param {string} dir
+ * @returns {Promise<void>} The mod tile generated from dir
  */
-async function displayMod(dir, container) {
+async function displayMod(dir) {
     const modDir = `${modsDir}/${dir}`
     const info = await getJson(`${modDir}/manifest.json`)
 
@@ -50,12 +51,13 @@ async function displayMod(dir, container) {
     title.appendChild(document.createTextNode(info.name))
     paragraph.appendChild(document.createTextNode(info.short_description))
 
-    tile.appendChild(body)
-    tile.appendChild(buttons)
+    
     body.appendChild(image)
     body.appendChild(title)
     body.appendChild(paragraph)
-    container.appendChild(tile)
+    tile.appendChild(body)
+    tile.appendChild(buttons)
+    return tile
 }
 
 /**
