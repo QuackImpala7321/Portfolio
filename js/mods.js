@@ -17,7 +17,6 @@ async function displayMod(dir, container) {
     const modDir = `${modsDir}/${dir}`
     const info = await getJson(`${modDir}/manifest.json`)
 
-    const listNode = document.createElement('li')
     const buttons = document.createElement('div')
     buttons.className = 'button-row'
     const tile = document.createElement('div')
@@ -53,11 +52,10 @@ async function displayMod(dir, container) {
 
     tile.appendChild(body)
     tile.appendChild(buttons)
-    listNode.appendChild(tile)
     body.appendChild(image)
     body.appendChild(title)
     body.appendChild(paragraph)
-    container.appendChild(listNode)
+    container.appendChild(tile)
 }
 
 /**
