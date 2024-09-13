@@ -16,8 +16,9 @@ export default {
                     if (!(r instanceof Promise))
                         throw new Error("Component is not async!")
                     r.then(buffer => {
-                        const doc = Document.parseHTMLUnsafe(buffer.toString())
-                        const tile = doc.body.firstChild
+                        const doc = document.createElement('html')
+                        doc.innerHTML = buffer.toString()
+                        const tile = doc.querySelector('body')?.firstChild
                         if (!tile) {
                             console.error("Tile does not contain body child.")
                             return

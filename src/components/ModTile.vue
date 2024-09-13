@@ -27,11 +27,16 @@ export default {
             source,
             downloads
         }
+    },
+    methods: {
+        endTransition(e: TransitionEvent) {
+            console.log(e)
+        }
     }
 }
 </script>
 
-<template id="mod-item">
+<template>
 <Suspense>
     <div class="mod-item">
         <div class="mod-item-body">
