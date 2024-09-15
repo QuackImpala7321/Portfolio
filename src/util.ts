@@ -1,4 +1,4 @@
-import { modsDir } from "@/mods"
+import { modsDir } from "@/mods.ts"
 
 export async function getJson(path: string): Promise<any> {
     const contents = await fetch(path)
