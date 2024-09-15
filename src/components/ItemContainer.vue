@@ -1,18 +1,20 @@
 <script lang="ts">
-import { getModList } from '@/util'
+import { getModList as getEntries } from '@/util'
 import { ssrRenderComponent } from 'vue/server-renderer';
 import ModTile from './ModTile.vue';
 
 export default {
+    name: 'item-container',
+    props: ['dir'],
     mounted() {
         this.populateModList()
     },
     methods: {
         populateModList() {
             const container: Element = this.$el.firstChild
-            getModList().then(mods => {
+            getEntries(this.dir).then(mods => {
                 for (const mod of mods) {
-                    const r = ssrRenderComponent(ModTile, { src: mod })
+                    const r = ssrRenderComponent(ModTile, { src: `${this.dir}/${mod}` })
                     if (!(r instanceof Promise))
                         throw new Error("Component is not async!")
                     r.then(buffer => {

@@ -7,7 +7,7 @@ import Navbar from './components/Navbar.vue';
   <Navbar />
   <div class="main-contents">
 		<h1>Mods</h1>
-    <ItemContainer />
+    <ItemContainer dir="mods"/>
 	</div>
 </template>
 

@@ -1,10 +1,10 @@
-import { modsDir } from "./mods"
+import { modsDir } from "@/mods"
 
 export async function getJson(path: string): Promise<any> {
     const contents = await fetch(path)
     return await contents.json()
 }
-export async function getModList(): Promise<string[]> {
-    const json = await getJson(`${modsDir}/mods.json`)
+export async function getModList(dir: string): Promise<string[]> {
+    const json = await getJson(`${modsDir}/${dir}/entries.json`)
     return json.dirs
 }

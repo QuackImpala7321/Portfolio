@@ -8,13 +8,7 @@
         },
         {
             "fileMatch": [
-                "/database/projects/*/mods.json"
-            ],
-            "url": "./schema/projects.schema.json"
-        },
-        {
-            "fileMatch": [
-                "/database/projects/*/addons.json"
+                "/database/projects/*/entries.json"
             ],
             "url": "./schema/projects.schema.json"
         }

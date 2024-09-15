@@ -27,11 +27,6 @@ export default {
             source,
             downloads
         }
-    },
-    methods: {
-        endTransition(e: TransitionEvent) {
-            console.log(e)
-        }
     }
 }
 </script>
@@ -41,11 +36,10 @@ export default {
     <div class="mod-item">
         <div class="mod-item-body">
             <img :src="img">
-            <h2>{{ title }}</h2>
-            <p>{{ short }}</p>
-            <!-- <div>
-                <p class="smaller">{{ desc }}</p>
-            </div> -->
+            <div class="mod-item-head">
+                <h2>{{ title }}</h2>
+                <p>{{ short }}</p>
+            </div>
         </div>
         <div class="button-row">
             <a :href="source" v-if="source">
