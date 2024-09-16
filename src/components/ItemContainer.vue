@@ -1,5 +1,5 @@
 <script lang="ts">
-import { getModList as getEntries } from '@/util'
+import { getModList as getEntries } from '../util.ts'
 import { ssrRenderComponent } from 'vue/server-renderer';
 import ModTile from './ModTile.vue';
 

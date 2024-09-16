@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ItemContainer from './components/ItemContainer.vue';
-import Navbar from './components/Navbar.vue';
+import ItemContainer from '@/components/ItemContainer.vue';
+import Navbar from '@/components/Navbar.vue';
 </script>
 
 <template>
@@ -11,4 +11,4 @@ import Navbar from './components/Navbar.vue';
 	</div>
 </template>
 
-<style src="./assets/style.css"></style>
+<style src="@/assets/style.css"></style>

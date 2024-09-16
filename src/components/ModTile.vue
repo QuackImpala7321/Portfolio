@@ -1,6 +1,6 @@
-<script lang="tsx">
+<script lang="ts">
 import { getJson } from '@/util.ts'
-import { modsDir } from '@/mods.ts'
+import { modsDir } from '@/pages/Mods/mods.ts'
 import { ref } from 'vue';
 
 export default {
