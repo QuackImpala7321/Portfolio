@@ -24,10 +24,9 @@ async function submit() {
 	
 	await fetch(API_URL, {
 		method: "POST",
-		// mode: "cors",
+		mode: "cors",
 		headers: {
-			"Access-Control-Allow-Origin": '*',
-			"Content-Type": "application/json"
+			"Content-Type": "text/plain"
 		},
 		body: JSON.stringify({
 			email: email,
