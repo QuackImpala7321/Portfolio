@@ -26,7 +26,7 @@ async function submit() {
 		method: "POST",
 		mode: "cors",
 		headers: {
-			"Content-Type": "text/plain"
+			"Content-Type": "application/json"
 		},
 		body: JSON.stringify({
 			email: email,
