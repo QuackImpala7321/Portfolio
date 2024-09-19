@@ -24,7 +24,8 @@ async function submit() {
 	
 	await fetch(API_URL, {
 		method: "POST",
-		mode: "cors",
+		// mode: "cors",
+		mode: "same-origin",
 		headers: {
 			"Content-Type": "application/json"
 		},
