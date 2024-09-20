@@ -7,7 +7,7 @@
 					<a href=".">Home</a>
 				</li>
 				<li>
-					<a href="mods.html">Mods</a>
+					<a href="mods">Mods</a>
 				</li>
 				<li>
 					<a href="#">Addons</a>
