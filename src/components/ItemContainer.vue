@@ -6,29 +6,25 @@ import ModTile from './ModTile.vue';
 export default {
     name: 'item-container',
     props: ['dir'],
-    mounted() {
-        this.populateModList()
+    async mounted() {
+        await this.populateModList()
     },
     methods: {
-        populateModList() {
-            const container: Element = this.$el.firstChild
-            getEntries(this.dir).then(mods => {
-                for (const mod of mods) {
-                    const r = ssrRenderComponent(ModTile, { src: `${this.dir}/${mod}` })
-                    if (!(r instanceof Promise))
-                        throw new Error("Component is not async!")
-                    r.then(buffer => {
-                        const doc = document.createElement('html')
-                        doc.innerHTML = buffer.toString()
-                        const tile = doc.querySelector('body')?.firstChild
-                        if (!tile) {
-                            console.error("Tile does not contain body child.")
-                            return
-                        }
-                        container.appendChild(tile)
-                    })
+        async populateModList() {
+            const container: HTMLElement = this.$el.firstChild
+            const mods = await getEntries(this.dir)
+            for (const mod of mods) {
+                const buffer = await ssrRenderComponent(ModTile, { src: `${this.dir}/${mod}` })
+                const doc = document.createElement('html')
+                doc.innerHTML = buffer[0].toString()
+                const tile = doc.querySelector('body')?.firstChild as HTMLElement
+                if (!tile) {
+                    console.error("Tile does not contain body child.")
+                    return
                 }
-            })
+                container.appendChild(tile)
+                tile.hidden = true
+            }
         }
     }
 }
