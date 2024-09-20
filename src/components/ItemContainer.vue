@@ -23,7 +23,6 @@ export default {
                     return
                 }
                 container.appendChild(tile)
-                tile.hidden = true
             }
         }
     }
