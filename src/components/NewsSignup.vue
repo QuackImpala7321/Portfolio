@@ -1,6 +1,7 @@
 <script lang="ts">
 import { API_URL } from '@/pages/Home/index.ts'
 import Checkbox from './Checkbox.vue'
+import { validEmail } from '@/util'
 
 async function submit() {
 	const confirmButton = document.querySelector('.confirm-button') as HTMLElement
@@ -11,7 +12,7 @@ async function submit() {
 	const emailElement: any = document.getElementById('email')
 	const email: string = emailElement.value
 
-	if (!email.includes('@') || !email.includes('.'))
+	if (!validEmail(email))
 		return
 
 	const text = confirmButton.firstElementChild as HTMLElement
@@ -22,7 +23,7 @@ async function submit() {
 	emailElement.setAttribute('readonly', 'readonly')
 	confirmButton.setAttribute('enabled', 'false')
 	
-	await fetch(API_URL, {
+	await fetch(`${API_URL}?mode=signup`, {
 		method: "POST",
 		mode: "cors",
 		headers: {
