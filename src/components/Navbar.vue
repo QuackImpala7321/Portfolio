@@ -4,7 +4,7 @@
 			<h1>Portfolio</h1>
 			<ol class="container">
 				<li>
-					<a href="index.html">Home</a>
+					<a href=".">Home</a>
 				</li>
 				<li>
 					<a href="mods.html">Mods</a>
