@@ -1,5 +1,5 @@
 <script lang="ts">
-import { getModList as getEntries } from '@/util.ts'
+import { getModList } from '@/pages/Mods/mods'
 import { ssrRenderComponent } from 'vue/server-renderer';
 import ModTile from './ModTile.vue';
 
@@ -12,7 +12,7 @@ export default {
     methods: {
         async populateModList() {
             const container: HTMLElement = this.$el.firstChild
-            const mods = await getEntries(this.dir)
+            const mods = await getModList(this.dir)
             for (const mod of mods) {
                 const buffer = await ssrRenderComponent(ModTile, { src: `${this.dir}/${mod}` })
                 const doc = document.createElement('html')
