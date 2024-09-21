@@ -13,16 +13,21 @@ export default {
         async populateModList() {
             const container: HTMLElement = this.$el.firstChild
             const mods = await getModList(this.dir)
-            for (const mod of mods) {
+            const tiles = new Array(mods.length)
+            for (let i = 0; i < mods.length; i++) {
+                const mod = mods[i]
                 const buffer = await ssrRenderComponent(ModTile, { src: `${this.dir}/${mod}` })
                 const doc = document.createElement('html')
                 doc.innerHTML = buffer[0].toString()
                 const tile = doc.querySelector('body')?.firstChild as HTMLElement
-                if (!tile) {
-                    console.error("Tile does not contain body child.")
-                    return
+                const image = tile.querySelector('img') as HTMLImageElement
+
+                image.onload = () => {
+                    tiles[i] = tile
+                    if (!tiles.includes(undefined))
+                        for (const tile of tiles)
+                            container.appendChild(tile)
                 }
-                container.appendChild(tile)
             }
         }
     }
