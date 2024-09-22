@@ -37,7 +37,7 @@ export default {
 
 <template>
 <Suspense>
-    <div>
+    <div class="item-container-wrapper">
         <div class="item-container"></div>
     </div>
 </Suspense>

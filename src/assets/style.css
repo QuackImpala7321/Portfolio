@@ -133,7 +133,7 @@ input[type = checkbox]:checked {
 
 /* Utility */
 .main-contents {
-	margin: 100px 40px 0 40px;
+	margin: 100px 250px 0 250px;
 	
 	display: flex;
 	flex-direction: column;
@@ -147,14 +147,14 @@ input[type = checkbox]:checked {
 	font-size: 50px;
 }
 
-.main-contents > div {
-	display: flex;
-	flex-direction: row;
-}
-
 .container {
 	margin: 0 10px;
 	padding: 0 15px;
+}
+
+.item-container-wrapper {
+	display: flex;
+	flex-direction: row;
 }
 
 .item-container {

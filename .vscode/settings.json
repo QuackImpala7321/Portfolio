@@ -1,16 +1,20 @@
 {
     "json.schemas": [
         {
-            "fileMatch": [
-                "/database/projects/*/*/manifest.json"
-            ],
+            "fileMatch": [ "/database/projects/*/*/manifest.json" ],
             "url": "./schema/manifest.schema.json"
         },
         {
-            "fileMatch": [
-                "/database/projects/*/entries.json"
-            ],
+            "fileMatch": [ "/database/projects/*/entries.json" ],
             "url": "./schema/projects.schema.json"
+        },
+        {
+            "fileMatch": [ "/database/newsletter/*.json", "!/database/newsletter/entries.json" ],
+            "url": "./schema/newsletter.schema.json"
+        },
+        {
+            "fileMatch": [ "/database/newsletter/entries.json" ],
+            "url": "./schema/news_entries.schema.json"
         }
     ]
 }
