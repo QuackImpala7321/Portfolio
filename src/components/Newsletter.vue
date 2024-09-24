@@ -1,35 +1,27 @@
-<script lang="ts">
+<script lang="js">
 import { getJson } from '@/util';
-
-const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-]
+import { ssrRenderComponent } from 'vue/server-renderer';
+import NewsItem from './NewsItem.vue';
 
 export default {
     async mounted() {
-        const el: HTMLElement = this.$el
-        const entries: string[] = await getJson("/database/newsletter/entries.json")
-        for (const entry of entries) {
-            const filename = entry.substring(0, entry.lastIndexOf('.'))
-            console.log(filename)
+        const entries = await getJson("/database/newsletter/entries.json")
+        for (let i = 0; i < entries.length; i++) {
+            const entry = entries[i]
 
-            const [ date, time ] = filename.split(' ')
-            const [ month, day, year ] = date.split('-')
-            const [ hour, minute ] = time.split('-')
+            const buffer = await ssrRenderComponent(NewsItem, { src: entry })
+            const doc = document.createElement('html')
+            doc.innerHTML = buffer[0]
+            const item = doc.querySelector('.news-item')
+            this.$el.appendChild(item)
 
-            const monthName = months[Number.parseInt(month) - 1]
-            console.log(monthName)
+            if (i < entries.length - 1) {
+                const div = document.createElement('div')
+                div.className = 'hr-wrapper'
+                const hr = document.createElement('hr')
+                div.appendChild(hr)
+                this.$el.appendChild(div)
+            }
         }
     },
 }

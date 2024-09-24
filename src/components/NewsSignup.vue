@@ -63,7 +63,7 @@ export default {
 
 <template>
 	<form class="newsletter-form" @submit="submit">
-		<div class="news-body">
+		<div class="news-form-body">
 			<h1>Sign up for the Newsletter!</h1>
 			<h2>Email</h2>
 			<input class="news-input" id="email" type="text" placeholder="example@example.com">

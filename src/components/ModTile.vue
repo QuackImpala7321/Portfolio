@@ -10,22 +10,14 @@ export default {
         const modDir = `${modsDir}/${props.src}`
         const info = await getJson(`${modDir}/manifest.json`)
 
-        const title = ref(info.name)
-        const img = ref(`${modDir}/icon.png`)
-        const short = ref(info.short_description)
-        const desc = ref(info.description)
-
-        const source = ref(info.source)
-        const downloads = ref(info.downloads)
-
         return {
-            title,
-            img,
-            short,
-            desc,
+            title: ref(info.name),
+            img: ref(`${modDir}/icon.png`),
+            short: ref(info.short_description),
+            desc: ref(info.description),
             
-            source,
-            downloads
+            source: ref(info.source),
+            downloads: ref(info.downloads)
         }
     }
 }

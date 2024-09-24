@@ -11,4 +11,4 @@ import Navbar from '@/components/Navbar.vue';
 	</div>
 </template>
 
-<style src="@/assets/style.css"></style>
+<style src="@/assets/style.css" />
