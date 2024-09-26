@@ -33,8 +33,7 @@ export default {
         const monthName = months[month - 1]
         const hour12 = hour > 12 ? hour - 12 : hour == 0 ? 12 : hour
 
-        const body = `<p>${json.body.join('<br>')}</p>`
-        console.log(body)
+        const body = json.body instanceof Array ? json.body.join('<br>') : json.body
 
         return {
             title: ref(json.title),
@@ -53,7 +52,7 @@ export default {
         <div class="news-timestamp">
             <h3>{{ timestamp }}</h3>
         </div>
-        <div class="news-body" v-html="body"></div>
+        <p class="news-body" v-html="body"></p>
     </div>
 </Suspense>
 </template>
